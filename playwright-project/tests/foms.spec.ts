@@ -18,5 +18,4 @@ await page.locator('#state');
 await page.selectOption('#state', 'Uttar Pradesh', { timeout: 60000 });
 await page.waitForTimeout(10000); // 60 seconds
 
-
 });
