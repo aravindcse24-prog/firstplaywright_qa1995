@@ -1,5 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+const env = process.env.ENV || 'dev';
 
+// 1️⃣ Load default .env
+dotenv.config();
+
+// 2️⃣ Load env-specific (override)
+dotenv.config({
+  path: `.env.${env}`,
+  override: false
+});
+
+console.log(`Running in ${env} environment`);
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -12,6 +24,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -35,6 +48,7 @@ export default defineConfig({
     
 
   },
+
 
   /* Configure projects for major browsers */
   projects: [

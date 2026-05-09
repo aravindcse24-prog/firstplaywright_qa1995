@@ -4,3 +4,9 @@ test('demo', async ({ dataworker }) => {
   console.log(dataworker);
   expect(dataworker).toBe('Hello from Worker');
 });
+
+test('test data',async({page})=>{
+
+console.log('worker here');}
+
+);

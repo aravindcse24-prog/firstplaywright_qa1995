@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 
 test('Form test',async({page})=>{
 
-await page.goto('https://www.qa-practice.com/forms/practice-form');
+await page.goto('https://www.qa-practice.com/elements/select/single_select');
 /*await expect(page).toHaveTitle(/QA Practice/);
 
 await page.getByRole('textbox',{name:'First Name'}).fill('aravind');
@@ -14,8 +14,9 @@ await page.locator('#gender_0').click();
 await page.getByLabel('Sports');
 await page.locator('#uploadPicture').setInputFiles('D:/playwright/playwright-project/test-data/pic.jpg');
 //await page.waitForTimeout(60000); // 60 seconds*/
-await page.locator('#state');
-await page.selectOption('#state', 'Uttar Pradesh', { timeout: 60000 });
+await page.locator('#id_choose_language');
+const drop=await page.selectOption('#id_choose_language', 'Java', { timeout: 60000 });
+console.log("java choosed"+" "+drop );
 await page.waitForTimeout(10000); // 60 seconds
 
 });
